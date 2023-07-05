@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="25dp"
+        android:height="18.75dp"
+        android:viewportWidth="25"
+        android:viewportHeight="18.75"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H25V18.75H0V0Z"
+                />
+
+            <group
+                android:translateX="1.007"
+                android:translateY="-0.444"
+                android:pivotX="12.5"
+                android:pivotY="9.375"
+                android:scaleX="2.26"
+                android:scaleY="2.696"
+                android:rotation="63.737"
+                >
+
+                <path
+                    android:pathData="M0 0V18.75H25V0"
+                    >
+
+                    <aapt:attr name="android:fillColor">
+
+                        <gradient
+                            android:type="linear"
+                            android:startX="6.25"
+                            android:startY="9.375"
+                            android:endX="18.75"
+                            android:endY="9.375"
+                            >
+
+                            <item
+                                android:color="#001C2C"
+                                android:offset="0"
+                                />
+
+                            <item
+                                android:color="#0887CF"
+                                android:offset="0.438"
+                                />
+
+                            <item
+                                android:color="#001D2E"
+                                android:offset="0.885"
+                                />
+
+                        </gradient>
+
+                    </aapt:attr>
+
+                </path>
+
+            </group>
+
+            <path
+                android:pathData="M0 0H25V18.75H0V0Z"
+                android:strokeWidth="2"
+                android:strokeColor="#000000"
+                />
+
+        </group>
+
+    </vector>
+
+</selector>

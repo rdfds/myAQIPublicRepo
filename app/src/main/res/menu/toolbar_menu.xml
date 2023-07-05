@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/indoor_air"
+        android:title="indoor air" />
+    <item
+        android:id="@+id/outdoor_air"
+        android:title="outdoor air" />
+    <item
+        android:id="@+id/switch_device"
+        android:title="switch device" />
+    <item
+        android:id="@+id/logout"
+        android:title="logout" />
+</menu>

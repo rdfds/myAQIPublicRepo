@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.myaqi.myaqi4.FurtherIndoorInformation">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnAsthma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Asthma"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="10sp"
+                    app:rippleColor="#000000" />
+
+                <Button
+                    android:id="@+id/btnCOPD"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="COPD"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="10sp"
+                    app:rippleColor="#000000" />
+
+                <Button
+                    android:id="@+id/btnAllergies"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Allergies"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="10sp"
+                    app:rippleColor="#000000" />
+
+                <Button
+                    android:id="@+id/btnBronchitis"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bronchitis"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="10sp"
+                    app:rippleColor="#000000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/average_sans"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/indoorDesc5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/average_sans"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/backToIndoor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="50dp"
+                android:text="BACK"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:rippleColor="#000000" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
