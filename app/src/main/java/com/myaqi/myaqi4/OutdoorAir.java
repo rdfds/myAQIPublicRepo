@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.utils.EntryXComparator;
@@ -47,9 +48,9 @@ public class OutdoorAir extends AppCompatActivity {
 
 
     TextView currentOutdoorAQI, currentOutdoorDesc;
+    LinearLayout currOutdoorAQIBackground;
     ScatterChart scatterChart;
     FirebaseAuth fAuth;
-    Button logoutbtn, aboutMebtn, setupDevicebtn, outdoorAirButton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class OutdoorAir extends AppCompatActivity {
         OutdoorTitle.setText("OUTDOOR AIR QUALITY");
         currentOutdoorDesc = findViewById(R.id.currentOutdoorDesc);
         currentOutdoorAQI = findViewById(R.id.currentOutdoorAQI);
+        currOutdoorAQIBackground = findViewById(R.id.currOutdoorAQIBackground);
         //logoutbtn = (Button) findViewById(R.id.logout);
         fAuth = FirebaseAuth.getInstance();
         scatterChart = findViewById(R.id.outdoorScatterplot);
@@ -125,7 +127,7 @@ public class OutdoorAir extends AppCompatActivity {
             hourlyAQI.setText(Integer.toString(importantData[0]));
 
 
-            if (importantData[0] < 50) {
+            /*if (importantData[0] < 50) {
                 hourlyAQI.setTextColor(Color.GREEN);
             }
             else if (importantData[0] < 100) {
@@ -163,7 +165,7 @@ public class OutdoorAir extends AppCompatActivity {
             else {
                 dailyAQI.setTextColor(Color.rgb(165,42,42));
 
-            }
+            }*/
 
             int outdoorCurrentAQI = importantData[2];
             String aqiString = "" + (int) outdoorCurrentAQI;
@@ -171,35 +173,41 @@ public class OutdoorAir extends AppCompatActivity {
 
             if (outdoorCurrentAQI < 50) {
                 currentOutdoorDesc.setText("GOOD");
-                currentOutdoorAQI.setTextColor(Color.GREEN);
-                currentOutdoorDesc.setTextColor(Color.GREEN);
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_good);
+                //currentOutdoorAQI.setTextColor(Color.GREEN);
+                //currentOutdoorDesc.setTextColor(Color.GREEN);
 
             }
             else if (outdoorCurrentAQI < 100) {
                 currentOutdoorDesc.setText("MODERATE");
-                currentOutdoorAQI.setTextColor(Color.YELLOW);
-                currentOutdoorDesc.setTextColor(Color.YELLOW);
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_moderate);
+                //currentOutdoorAQI.setTextColor(Color.YELLOW);
+                //currentOutdoorDesc.setTextColor(Color.YELLOW);
 
             }
             else if (outdoorCurrentAQI < 150) {
                 currentOutdoorDesc.setText("UNHEALTHY FOR SENSITIVE GROUPS");
-                currentOutdoorAQI.setTextColor(Color.rgb(255,140,0));
-                currentOutdoorDesc.setTextColor(Color.rgb(255,140,0));
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_unhealthy_for_sensitive_groups);
+                //currentOutdoorAQI.setTextColor(Color.rgb(255,140,0));
+               // currentOutdoorDesc.setTextColor(Color.rgb(255,140,0));
             }
             else if (outdoorCurrentAQI < 200) {
                 currentOutdoorDesc.setText("UNHEALTHY");
-                currentOutdoorAQI.setTextColor(Color.RED);
-                currentOutdoorDesc.setTextColor(Color.RED);
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_unhealthy);
+                //currentOutdoorAQI.setTextColor(Color.RED);
+                //currentOutdoorDesc.setTextColor(Color.RED);
             }
             else if (outdoorCurrentAQI < 300) {
                 currentOutdoorDesc.setText("VERY UNHEALTHY");
-                currentOutdoorAQI.setTextColor(Color.rgb(128,0,128));
-                currentOutdoorDesc.setTextColor(Color.rgb(128,0,128));
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_very_unhealthy);
+                //currentOutdoorAQI.setTextColor(Color.rgb(128,0,128));
+                //currentOutdoorDesc.setTextColor(Color.rgb(128,0,128));
             }
             else {
                 currentOutdoorDesc.setText("HAZARDOUS");
-                currentOutdoorAQI.setTextColor(Color.rgb(165,42,42));
-                currentOutdoorDesc.setTextColor(Color.rgb(165,42,42));
+                currOutdoorAQIBackground.setBackgroundResource(R.color.aqi_hazardous);
+                //currentOutdoorAQI.setTextColor(Color.rgb(165,42,42));
+                //currentOutdoorDesc.setTextColor(Color.rgb(165,42,42));
 
             }
 
@@ -392,189 +400,3 @@ public class OutdoorAir extends AppCompatActivity {
 
 }
 
-
-
-    /*TextView currentOutdoorAQI, currentOutdoorDesc;
-    public static float outdoorCurrentAQI;
-    ScatterChart scatterChart;
-    Button indoorAirButton;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_outdoor_air);
-        scatterChart = findViewById(R.id.outdoorScatterplot);
-        //indoorAirButton = findViewById(R.id.indoorAirButton);
-        currentOutdoorDesc = findViewById(R.id.currentOutdoorDesc);
-        currentOutdoorAQI = findViewById(R.id.currentOutdoorAQI);
-        OutdoorAir.OutdoorDataApiCall OutdoorDataApiCall = new OutdoorAir.OutdoorDataApiCall();
-        OutdoorDataApiCall.execute();
-        updateDisplay();
-
-    indoorAirButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        }
-    });
-    }
-
-    private class OutdoorDataApiCall extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-
-
-            getAllData();
-            return null;
-        }
-    }
-
-
-    public void getAllData() {
-
-        OkHttpClient client = new OkHttpClient();
-        String serialNumber = retrieveSerialNumber();
-        Log.d("serial number", serialNumber);
-        String baseUrl = "https://servicedeath.backendless.app/api/data/OutdoorData?where=deviceSerialNumber="+serialNumber;
-        int pageSize = 50;
-        int offset = 0;
-
-        List<Entry> entries = new ArrayList<>();
-
-        while (true) {
-
-            HttpUrl.Builder urlBuilder = HttpUrl.parse(baseUrl).newBuilder();
-            urlBuilder.addQueryParameter("pageSize", Integer.toString(pageSize));
-            urlBuilder.addQueryParameter("offSet", Integer.toString(offset));
-            urlBuilder.addQueryParameter("sortBy", "created%20asc");
-            String url = urlBuilder.build().toString();
-
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
-
-            try (Response response = client.newCall(request).execute()) {
-
-                if (response.code() == 200) {
-
-                    String jsonData = response.body().string();
-                    JSONArray jsonArray = new JSONArray(jsonData);
-
-                    entries = addEntries(jsonArray, entries);
-
-                    offset += pageSize;
-                    if (jsonData.length() < pageSize) {
-                        break;
-                    }
-
-                }
-
-            }
-
-            catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-        //displayDataOnLineChart(entries);
-        displayDataOnScatterChart(entries);
-
-
-    }
-
-    public List<Entry> addEntries(JSONArray jsonArray, List<Entry> entries) throws JSONException {
-
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            //single object
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-            String aqi = jsonObject.getString("aqi");
-
-            //time is in milliseconds
-            String created = jsonObject.getString("created");
-
-            //conversions
-            long epoch = Long.parseLong(created);
-            Date date = new Date(epoch);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String dateString = sdf.format(date);
-
-            //extracting/truncating the hour as a decimal from the timestamp data
-            String hourString = dateString.substring(dateString.indexOf(" ") + 1, dateString.indexOf(":"));
-            String minuteString = dateString.substring(dateString.indexOf(":") + 1);
-            minuteString = minuteString.substring(0, minuteString.indexOf(":"));
-            if (aqi != "null" && hourString != "null" && minuteString != "null" ) {
-
-                float hourTotalFloat = parseInt(hourString) + (parseInt(minuteString) / 60.0f);
-
-                float aqiFloat = parseInt(aqi);
-
-                Log.d("ErrorLog", hourString);
-                Log.d("ErrorLog", aqi);
-
-                entries.add(new Entry(hourTotalFloat, aqiFloat));
-
-                if (i == 0) {
-                    outdoorCurrentAQI = aqiFloat;
-                }
-
-            }
-        }
-
-        return entries;
-    }
-
-    public void updateDisplay() {
-
-        String aqiString = "CURRENT OUTDOOR AQI: " + outdoorCurrentAQI;
-        currentOutdoorAQI.setText(aqiString);
-
-        if (outdoorCurrentAQI < 50) {
-            currentOutdoorDesc.setText("AQI IS GOOD");
-        }
-        else if (outdoorCurrentAQI < 100) {
-            currentOutdoorDesc.setText("AQI IS MODERATE");
-        }
-        else if (outdoorCurrentAQI < 150) {
-            currentOutdoorDesc.setText("AQI IS UNHEALTHY FOR SENSITIVE GROUPS");
-        }
-        else if (outdoorCurrentAQI < 200) {
-            currentOutdoorDesc.setText("AQI IS UNHEALTHY");
-        }
-        else if (outdoorCurrentAQI < 300) {
-            currentOutdoorDesc.setText("AQI IS VERY UNHEALTHY");
-        }
-        else {
-            currentOutdoorDesc.setText("AQI IS HAZARDOUS");
-        }
-    }
-
-    public void displayDataOnScatterChart(List<Entry> entries) {
-
-        ScatterDataSet dataSet = new ScatterDataSet(entries, "Indoor Data");
-
-        dataSet.setColor(Color.RED);
-        dataSet.setValueTextSize(10f);
-
-
-
-        ScatterData data = new ScatterData(dataSet);
-        scatterChart.setData(data);
-
-        //lineChart.setVisibleXRange(19, 22);
-        XAxis x = scatterChart.getXAxis();
-        x.setAxisMinimum(0f);
-        x.setAxisMaximum(24f);
-
-        //refresh
-        scatterChart.invalidate();
-
-    }
-
-    public String retrieveSerialNumber() {
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-        String serialNumber = sp.getString("deviceSerialNumber", "");
-        return serialNumber;
-    }*/

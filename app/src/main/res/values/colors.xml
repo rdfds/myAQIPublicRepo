@@ -8,5 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#4790FC</color>
+    <color name="aqi_good">#00E400</color> <!-- Green -->
+    <color name="aqi_moderate">#FFFF00</color> <!-- Yellow -->
+    <color name="aqi_unhealthy_for_sensitive_groups">#FF7E00</color> <!-- Orange -->
+    <color name="aqi_unhealthy">#FF0000</color> <!-- Red -->
+    <color name="aqi_very_unhealthy">#8F3F97</color> <!-- Purple -->
+    <color name="aqi_hazardous">#7E0023</color> <!-- Maroon -->
 
 </resources>

@@ -4,156 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.myaqi.myaqi4.FurtherIndoorInformation">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/backToIndoor">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="8dp">
 
-            <LinearLayout
+            <!-- Button Group -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="24dp"
+                app:singleSelection="true">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGeneral"
+                    style="@style/ButtonTabStyle"
+                    android:text="General" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAsthma"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Asthma"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="10sp"
-                    app:rippleColor="#000000" />
+                    style="@style/ButtonTabStyle"
+                    android:text="Asthma" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCOPD"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="COPD"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="10sp"
-                    app:rippleColor="#000000" />
+                    style="@style/ButtonTabStyle"
+                    android:text="COPD" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAllergies"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Allergies"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="10sp"
-                    app:rippleColor="#000000" />
+                    style="@style/ButtonTabStyle"
+                    android:text="Allergies" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnBronchitis"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Bronchitis"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="10sp"
-                    app:rippleColor="#000000" />
+                    style="@style/ButtonTabStyle"
+                    android:text="Bronchitis" />
 
-            </LinearLayout>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <TextView
-                android:id="@+id/textView3"
+            <!-- Descriptions -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/titleDescription"
+                style="@style/CustomHeadline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/average_sans"
                 android:gravity="center_horizontal"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="40sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
-                android:id="@+id/indoorDesc6"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subDescription"
+                style="@style/CustomSubtitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="25sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/indoorDesc1"
+                style="@style/CustomBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="14sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/indoorDesc2"
+                style="@style/CustomBody"
+                android:layout_marginBottom="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="14sp" />
+                android:layout_height="wrap_content" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/indoorDesc3"
+                style="@style/CustomBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="14sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/indoorDesc4"
+                style="@style/CustomBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="14sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/indoorDesc5"
+                style="@style/CustomBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/average_sans"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="14sp" />
+                android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/backToIndoor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|bottom"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="50dp"
-                android:text="BACK"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                app:rippleColor="#000000" />
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Back Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backToIndoor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/back_icon"
+        app:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

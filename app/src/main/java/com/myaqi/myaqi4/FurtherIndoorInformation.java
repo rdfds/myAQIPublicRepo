@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class FurtherIndoorInformation extends AppCompatActivity {
     TextView mainDesc, indoorDesc1, indoorDesc2, indoorDesc3, indoorDesc4, indoorDesc5, indoorDesc6;
     Button btnAsthma, btnCOPD, btnAllergies, btnBronchitis;
@@ -21,14 +23,14 @@ public class FurtherIndoorInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_further_indoor_information);
 
-        Button backButton = findViewById(R.id.backToIndoor);
-        mainDesc = findViewById(R.id.textView3);
+        FloatingActionButton backButton = findViewById(R.id.backToIndoor);
+        mainDesc = findViewById(R.id.titleDescription);
         indoorDesc1 = findViewById(R.id.indoorDesc1);
         indoorDesc2 = findViewById(R.id.indoorDesc2);
         indoorDesc3 = findViewById(R.id.indoorDesc3);
         indoorDesc4 = findViewById(R.id.indoorDesc4);
         indoorDesc5 = findViewById(R.id.indoorDesc5);
-        indoorDesc6 = findViewById(R.id.indoorDesc6);
+        indoorDesc6 = findViewById(R.id.subDescription);
         btnAsthma = findViewById(R.id.btnAsthma);
         btnCOPD = findViewById(R.id.btnCOPD);
         btnAllergies = findViewById(R.id.btnAllergies);
@@ -38,80 +40,46 @@ public class FurtherIndoorInformation extends AppCompatActivity {
         mainDesc.setText(desc);
         mainDesc.setGravity(Gravity.CENTER);
 
-        /*if (desc.equals("GOOD")) {
-            indoorDesc1.setText("Students can remain indoors ");
-            indoorDesc2.setText("Asthmatic students' rescue inhalers are likely not necessary ");
-            indoorDesc3.setText("Maintain current school air quality policy ");
-            indoorDesc4.setText("If outdoor air quality is worse, it is advised to have students remain indoors ");
-        }
-        else if (desc.equals("MODERATE")) {
-            indoorDesc1.setText("Consider reducing or rescheduling students' strenuous activities indoors ");
-            indoorDesc2.setText("Asthmatic students' rescue inhalers are likely not necessary ");
-            indoorDesc3.setText("Consider opening or closing windows based on outdoor air quality ");
-            indoorDesc4.setText("Monitor students' symptoms, such as coughing or throat irritation ");
-        }
-        else if (desc.equals("UNHEALTHY FOR SENSITIVE GROUPS")) {
-            indoorDesc1.setText("Reduce or reschedule students' strenuous activities indoors ");
-            indoorDesc2.setText("Asthmatic students' rescue inhalers will likely become necessary, ensure that they are carrying them ");
-            indoorDesc3.setText("If students are experiencing coughing or throat irritation, advise families to contact a medical professional ");
-            indoorDesc4.setText("If outdoor air quality is better, it is advised to remain outdoors or open the windows ");
-        }
-        else if (desc.equals("UNHEALTHY")) {
-            indoorDesc1.setText("Students should avoid strenuous activities or any physical exertion indoors ");
-            indoorDesc2.setText("Asthmatic students' rescue inhalers are now necessary, ensure that they are carrying them ");
-            indoorDesc3.setText("Exposure over extended periods of time is approximately equivalent to smoking one cigarette");
-            indoorDesc4.setText("If outdoor air quality is better, it is advised for students to remain outdoors or open the windows");
-        }
-        else if (desc.equals("VERY UNHEALTHY")) {
-            indoorDesc1.setText("Exposure over extended periods of time is approximately equivalent to smoking nine cigarettes ");
-            indoorDesc2.setText("Installing air purification devices is recommended ");
-            indoorDesc3.setText("It is critical for students to carry a rescue inhaler ");
-            indoorDesc4.setText("Have school nursing staff monitor asthmatic students ");
-        }
-        else if (desc.equals("HAZARDOUS")) {
-            indoorDesc1.setText("Exposure over extended periods of time is approximately equivalent to smoking twenty-four cigarettes ");
-            indoorDesc2.setText("Installing air purification devices is critical ");
-            indoorDesc3.setText("It is critical for students to carry a rescue inhaler ");
-            indoorDesc4.setText("Students must seek medical attention if experiencing any symptoms, even mild ");
-        }*/
+
 
         if (desc.equals("GOOD")) {
-            indoorDesc1.setText("- Asthmatic students can participate in regular indoor activities without significant restrictions.");
+            indoorDesc1.setText("- Encourage students to engage in regular indoor activities without restrictions.");
             indoorDesc2.setText("- Ensure proper ventilation in classrooms and common areas to maintain good indoor air quality.");
-            indoorDesc3.setText("- Educate students and staff about asthma triggers, early warning signs, and the importance of proper inhaler usage.");
-            indoorDesc4.setText("- Encourage asthmatic students to carry their rescue inhalers at all times and use them as prescribed.");
-            indoorDesc5.setText("- Promote a healthy lifestyle with regular exercise, proper nutrition, and adequate hydration to support respiratory health.");
+            indoorDesc3.setText("- Educate students about the importance of fresh air and its impact on overall well-being.");
+            indoorDesc4.setText("- Promote healthy habits such as regular exercise, balanced nutrition, and staying hydrated to support overall health.");
+            indoorDesc5.setText("");
         } else if (desc.equals("MODERATE")) {
-            indoorDesc1.setText("- Consider modifying or rescheduling strenuous physical activities for asthmatic students indoors.");
-            indoorDesc2.setText("- Monitor the AQI regularly and adjust activities accordingly.");
-            indoorDesc3.setText("- Encourage asthmatic students to practice controlled breathing techniques to manage symptoms during physical exertion.");
-            indoorDesc4.setText("- Ensure that all staff members are trained in recognizing and responding to asthma symptoms and emergencies.");
-            indoorDesc5.setText("- Collaborate with healthcare professionals to provide asthma education sessions for students, staff, and parents.");
+            indoorDesc1.setText("- Consider adjusting or rescheduling strenuous physical activities for students indoors.");
+            indoorDesc2.setText("- Monitor the Air Quality Index (AQI) regularly and modify activities accordingly.");
+            indoorDesc3.setText("- Teach students about the potential effects of moderate indoor air quality on their health.");
+            indoorDesc4.setText("- Encourage students to take breaks and practice deep breathing exercises to enhance indoor air circulation.");
+            indoorDesc5.setText("");
         } else if (desc.equals("UNHEALTHY FOR SENSITIVE GROUPS")) {
-            indoorDesc1.setText("- Modify or reschedule strenuous activities for asthmatic students indoors.");
-            indoorDesc2.setText("- Ensure that asthmatic students carry their rescue inhalers and have access to them at all times.");
-            indoorDesc3.setText("- If students are experiencing coughing or throat irritation, advise families to contact a medical professional.");
-            indoorDesc4.setText("- If outdoor air quality is better, it is advised to remain outdoors or open the windows.");
-            indoorDesc5.setText("- Collaborate with healthcare professionals to develop individualized asthma action plans for each asthmatic student.");
+            indoorDesc1.setText("- Modify or reschedule strenuous activities for all students indoors.");
+            indoorDesc2.setText("- Raise awareness about the impact of poor indoor air quality on overall health and well-being.");
+            indoorDesc3.setText("- Encourage students to report any symptoms, such as coughing or irritation, to their teachers or school staff.");
+            indoorDesc4.setText("- Collaborate with healthcare professionals to provide general education on maintaining a healthy indoor environment.");
+            indoorDesc5.setText("");
         } else if (desc.equals("UNHEALTHY")) {
-            indoorDesc1.setText("- Students should avoid strenuous activities or any physical exertion indoors.");
-            indoorDesc2.setText("- Asthmatic students' rescue inhalers are now necessary, ensure that they are carrying them.");
-            indoorDesc3.setText("- Exposure over extended periods of time is approximately equivalent to smoking one cigarette.");
-            indoorDesc4.setText("- If outdoor air quality is better, it is advised for students to remain outdoors or open the windows.");
-            indoorDesc5.setText("- Collaborate with healthcare professionals to conduct regular asthma check-ups and provide additional support as needed.");
+            indoorDesc1.setText("- Advise students to minimize physical exertion and avoid strenuous activities indoors.");
+            indoorDesc2.setText("- Educate students about the potential health risks associated with poor indoor air quality.");
+            indoorDesc3.setText("- Encourage students to stay hydrated and take breaks in well-ventilated areas.");
+            indoorDesc4.setText("- Collaborate with healthcare professionals to provide guidance and resources on maintaining respiratory health.");
+            indoorDesc5.setText("");
         } else if (desc.equals("VERY UNHEALTHY")) {
-            indoorDesc1.setText("- Exposure over extended periods of time is approximately equivalent to smoking nine cigarettes.");
-            indoorDesc2.setText("- Installing air purification devices is recommended.");
-            indoorDesc3.setText("- It is critical for students to carry a rescue inhaler.");
-            indoorDesc4.setText("- Have school nursing staff monitor asthmatic students.");
-            indoorDesc5.setText("- Collaborate with healthcare professionals to develop individualized asthma action plans for students with severe asthma and provide additional support during this critical period.");
+            indoorDesc1.setText("- Inform students about the severe health risks associated with very unhealthy indoor air quality.");
+            indoorDesc2.setText("- Encourage students to minimize exposure to the indoor environment and seek fresh air when possible.");
+            indoorDesc3.setText("- Raise awareness about the importance of respiratory protection, such as wearing masks if necessary.");
+            indoorDesc4.setText("- Collaborate with healthcare professionals to provide comprehensive guidance and support for students during this critical period.");
+            indoorDesc5.setText("");
         } else if (desc.equals("HAZARDOUS")) {
-            indoorDesc1.setText("- Exposure over extended periods of time is approximately equivalent to smoking twenty-four cigarettes.");
-            indoorDesc2.setText("- Installing air purification devices is critical.");
-            indoorDesc3.setText("- It is critical for students to carry a rescue inhaler.");
-            indoorDesc4.setText("- Students must seek medical attention if experiencing any symptoms, even mild.");
-            indoorDesc5.setText("- Collaborate with healthcare professionals to provide comprehensive asthma management strategies for students and support their specific medical needs.");
+            indoorDesc1.setText("- Inform students about the hazardous nature of the indoor air quality and the immediate risks it poses to health.");
+            indoorDesc2.setText("- Initiate emergency measures, such as evacuating the premises or seeking alternative locations with better air quality.");
+            indoorDesc3.setText("- Encourage students to seek immediate medical attention if they experience any symptoms related to poor air quality.");
+            indoorDesc4.setText("- Collaborate with healthcare professionals to provide necessary medical interventions and support for students affected by the hazardous indoor air quality situation.");
+            indoorDesc5.setText("");
         }
+
 
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
@@ -131,6 +99,22 @@ public class FurtherIndoorInformation extends AppCompatActivity {
         else {
             str = "fluctuating";
         }
+
+
+        if (curr <= 50) {
+            mainDesc.setBackgroundResource(R.color.aqi_good);
+        } else if (curr <= 100) {
+            mainDesc.setBackgroundResource(R.color.aqi_moderate);
+        } else if (curr <= 150) {
+            mainDesc.setBackgroundResource(R.color.aqi_unhealthy_for_sensitive_groups);
+        } else if (curr <= 200) {
+            mainDesc.setBackgroundResource(R.color.aqi_unhealthy);
+        } else if (curr <= 300) {
+            mainDesc.setBackgroundResource(R.color.aqi_very_unhealthy);
+        } else {
+            mainDesc.setBackgroundResource(R.color.aqi_hazardous);
+        }
+
         indoorDesc6.setText("Based on current trends, the AQI is " + str + " over time ");
 
         btnAsthma.setOnClickListener(new View.OnClickListener() {

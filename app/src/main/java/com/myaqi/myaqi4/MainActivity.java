@@ -18,16 +18,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.utils.EntryXComparator;
-import com.myaqi.myaqi4.R;
 import com.github.mikephil.charting.charts.ScatterChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
-import com.github.mikephil.charting.interfaces.datasets.IScatterDataSet;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
@@ -49,9 +48,9 @@ public class MainActivity extends AppCompatActivity{
 
 
     TextView currentIndoorAQI, currentIndoorDesc;
+    LinearLayout currIndoorAQIBackground;
     //public static float indoorCurrentAQI;
     ScatterChart scatterChart;
-    Button logoutbtn;
 
     FirebaseAuth fAuth;
     @SuppressLint("MissingInflatedId")
@@ -65,7 +64,8 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         currentIndoorDesc = findViewById(R.id.currentIndoorDesc);
         currentIndoorAQI = findViewById(R.id.currentIndoorAQI);
-        logoutbtn = (Button) findViewById(R.id.logout);
+        currIndoorAQIBackground = findViewById(R.id.currIndoorAQIBackground);
+        //logoutbtn = (Button) findViewById(R.id.logout);
         TextView OutdoorTitle = findViewById(R.id.IndoorAQI);
         TextView furtherInformation = findViewById(R.id.textView16);
         OutdoorTitle.setText("INDOOR AIR QUALITY");
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity{
             dailyAQI.setText(Integer.toString(importantData[1]));
             hourlyAQI.setText(Integer.toString(importantData[0]));
 
-            if (importantData[0] < 50) {
+            /*if (importantData[0] < 50) {
                 hourlyAQI.setTextColor(Color.GREEN);
             }
             else if (importantData[0] < 100) {
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity{
             else {
                 dailyAQI.setTextColor(Color.rgb(165,42,42));
 
-            }
+            }*/
 
             int indoorCurrentAQI = importantData[2];
             String aqiString = "" + (int) indoorCurrentAQI;
@@ -192,35 +192,29 @@ public class MainActivity extends AppCompatActivity{
 
             if (indoorCurrentAQI < 50) {
                 currentIndoorDesc.setText("GOOD");
-                currentIndoorAQI.setTextColor(Color.GREEN);
-                currentIndoorDesc.setTextColor(Color.GREEN);
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_good);
 
             }
             else if (indoorCurrentAQI < 100) {
                 currentIndoorDesc.setText("MODERATE");
-                currentIndoorAQI.setTextColor(Color.YELLOW);
-                currentIndoorDesc.setTextColor(Color.YELLOW);
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_moderate);
 
             }
             else if (indoorCurrentAQI < 150) {
                 currentIndoorDesc.setText("UNHEALTHY FOR SENSITIVE GROUPS");
-                currentIndoorAQI.setTextColor(Color.rgb(255,140,0));
-                currentIndoorDesc.setTextColor(Color.rgb(255,140,0));
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_unhealthy_for_sensitive_groups);
             }
             else if (indoorCurrentAQI < 200) {
                 currentIndoorDesc.setText("UNHEALTHY");
-                currentIndoorAQI.setTextColor(Color.RED);
-                currentIndoorDesc.setTextColor(Color.RED);
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_unhealthy);
             }
             else if (indoorCurrentAQI < 300) {
                 currentIndoorDesc.setText("VERY UNHEALTHY");
-                currentIndoorAQI.setTextColor(Color.rgb(128,0,128));
-                currentIndoorDesc.setTextColor(Color.rgb(128,0,128));
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_very_unhealthy);
             }
             else {
                 currentIndoorDesc.setText("HAZARDOUS");
-                currentIndoorAQI.setTextColor(Color.rgb(165,42,42));
-                currentIndoorDesc.setTextColor(Color.rgb(165,42,42));
+                currIndoorAQIBackground.setBackgroundResource(R.color.aqi_hazardous);
 
             }
 

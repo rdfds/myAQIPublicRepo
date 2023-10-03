@@ -4,179 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     tools:context="com.myaqi.myaqi4.MainActivity">
 
-    <RelativeLayout
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
-        <ScrollView
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/IndoorAQI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/average_sans"
+            android:text="INDOOR AQI"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/currAQIContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IndoorAQI">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/currIndoorAQIBackground"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/text_background"
+                android:padding="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="103dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="64dp"
-                    android:layout_marginEnd="40dp"
-                    android:fontFamily="@font/average_sans"
-                    android:text="DAILY AVERAGE"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="121dp"
-                    android:layout_height="19dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="64dp"
-                    android:fontFamily="@font/average_sans"
-                    android:text="HOURLY AVERAGE"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-                <TextView
-                    android:id="@+id/dailyIndoorAQI"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/average_sans"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="35sp"
-                    app:layout_constraintEnd_toEndOf="@id/textView19"
-                    app:layout_constraintHorizontal_bias="0.53"
-                    app:layout_constraintStart_toStartOf="@id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-                <TextView
-                    android:id="@+id/hourlyIndoorAQI"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/average_sans"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="35sp"
-                    app:layout_constraintEnd_toEndOf="@id/textView17"
-                    app:layout_constraintStart_toStartOf="@id/textView17"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-                <TextView
-                    android:id="@+id/currentIndoorDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/average_sans"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="25sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/currentIndoorAQI" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="200dp"
-                    android:fontFamily="@font/average_sans"
-                    android:text="DAILY INDOOR AQI"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="25sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/currentIndoorDesc" />
-
+                <!-- Current AQI Value -->
                 <TextView
                     android:id="@+id/currentIndoorAQI"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/average_sans"
+                    android:text="100"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textColorHint="#000000"
                     android:textSize="100sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/IndoorAQI" />
 
-                <com.github.mikephil.charting.charts.ScatterChart
-                    android:id="@+id/indoorScatterplot"
-                    android:layout_width="263dp"
-                    android:layout_height="170dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="28dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
+                <!-- Description below Current AQI Value -->
                 <TextView
-                    android:id="@+id/IndoorAQI"
+                    android:id="@+id/currentIndoorDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="76dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/average_sans"
+                    android:text="Description Here"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/currentIndoorAQI" />
 
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/average_sans"
-                    android:text="Want more info? Click here"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/currentIndoorDesc" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout" />
-    </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Your scatter chart -->
+        <com.github.mikephil.charting.charts.ScatterChart
+            android:id="@+id/indoorScatterplot"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currAQIContainer" />
+
+        <!-- Hourly Average Title -->
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="HOURLY AVERAGE"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indoorScatterplot" />
+
+        <!-- Hourly Average Value -->
+        <TextView
+            android:id="@+id/hourlyIndoorAQI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="75"
+            android:textSize="35sp"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <!-- Daily Average Title -->
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="DAILY AVERAGE"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/indoorScatterplot" />
+
+        <!-- Daily Average Value -->
+        <TextView
+            android:id="@+id/dailyIndoorAQI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="80"
+            android:textSize="35sp"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <!-- Link to more info -->
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/average_sans"
+            android:text="Want more info? Click here for recommendations"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dailyIndoorAQI" />
+
+        <!-- Guideline to divide the Hourly and Daily Averages -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
+</RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

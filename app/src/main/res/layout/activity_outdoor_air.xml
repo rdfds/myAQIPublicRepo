@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     tools:context="com.myaqi.myaqi4.OutdoorAir">
 
   <RelativeLayout
@@ -23,141 +22,147 @@
       <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:orientation="vertical">
+          android:padding="16dp">
 
+        <!-- Title Text -->
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="103dp"
-            android:layout_height="20dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="40dp"
-            android:fontFamily="@font/average_sans"
-            android:text="DAILY AVERAGE"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentOutdoorDesc" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="121dp"
-            android:layout_height="19dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="64dp"
-
-            android:fontFamily="@font/average_sans"
-            android:text="HOURLY AVERAGE"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentOutdoorDesc" />
-
-        <TextView
-            android:id="@+id/dailyOutdoorAQI"
+            android:id="@+id/OutdoorAQI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="76dp"
             android:fontFamily="@font/average_sans"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="@id/textView9"
-            app:layout_constraintHorizontal_bias="0.53"
-            app:layout_constraintStart_toStartOf="@id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/hourlyOutdoorAQI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/average_sans"
+            android:text="OUTDOOR AQI"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="@id/textView7"
-            app:layout_constraintStart_toStartOf="@id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/currentOutdoorDesc"
+        <FrameLayout
+            android:id="@+id/currAQIContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/average_sans"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentOutdoorAQI" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"
-            android:fontFamily="@font/average_sans"
-            android:text="DAILY OUTDOOR AQI"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentOutdoorDesc" />
-
-        <TextView
-            android:id="@+id/currentOutdoorAQI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/average_sans"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="100sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/OutdoorAQI" />
-
-        <com.github.mikephil.charting.charts.ScatterChart
-            android:id="@+id/outdoorScatterplot"
-            android:layout_width="263dp"
-            android:layout_height="170dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/OutdoorAQI">
 
-        <TextView
-            android:id="@+id/OutdoorAQI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="76dp"
-            android:fontFamily="@font/average_sans"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="30sp"
+          <LinearLayout
+              android:id="@+id/currOutdoorAQIBackground"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:background="@drawable/text_background"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+            <!-- Current AQI Value -->
+            <TextView
+                android:id="@+id/currentOutdoorAQI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:text="100"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="100sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OutdoorAQI" />
+
+            <!-- Description below Current AQI Value -->
+            <TextView
+                android:id="@+id/currentOutdoorDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/average_sans"
+                android:text="Description Here"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/currentOutdoorAQI" />
+
+          </LinearLayout>
+        </FrameLayout>
+
+        <!-- Your scatter chart -->
+        <com.github.mikephil.charting.charts.ScatterChart
+            android:id="@+id/outdoorScatterplot"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/currAQIContainer" />
+
+        <!-- Hourly Average Title -->
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="HOURLY AVERAGE"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outdoorScatterplot" />
+
+        <!-- Hourly Average Value -->
+        <TextView
+            android:id="@+id/hourlyOutdoorAQI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <!-- Daily Average Title -->
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="DAILY AVERAGE"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/outdoorScatterplot" />
+
+        <!-- Daily Average Value -->
+        <TextView
+            android:id="@+id/dailyOutdoorAQI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/average_sans"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <!-- Guideline to divide the Hourly and Daily Averages -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
       </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -165,6 +170,4 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout" />
   </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
