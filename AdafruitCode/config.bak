@@ -8,5 +8,5 @@
     'ssid' : "",
     'password' : "",
     "timezone": "America/New_York",
-    "serial_number": "1000000007",
+    "serial_number": "",
 }
