@@ -151,9 +151,9 @@ def sendSMS(deviceSerialNumber, message):
         phone4 = format_phone_number(phoneList["phone4"])  
         phone5 = format_phone_number(phoneList["phone5"])
 
-        # Twilio API credentials
-        account_sid = 'AC96621d201b8c7d4a75a64168a42399d8'
-        auth_token = '1d2de2f71d589a730a086975f5c57a99'
+        # Twilio API credentials removed from Github for security puposes 
+        account_sid = ''
+        auth_token = ''
         twilio_phone_number = '+13612649833'
 
         try:
