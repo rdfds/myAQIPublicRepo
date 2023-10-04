@@ -34,8 +34,8 @@ def sendData():
         print(str(e))
         print("Failed to get device info")
     
-    # #get the weather for the location
-    
+    #Calculate approximate outdoor AQI based on coordinates
+
     weatherData = None
     weather_response = None
     aqi = None
@@ -140,12 +140,7 @@ def getPhoneList(deviceSerialNumber):
 def sendSMS(deviceSerialNumber, message):
     phoneList = getPhoneList(deviceSerialNumber)
     if (phoneList != ""):
-        #print("phone list: " + phoneList)
-        #phone1 = phoneList["phone1"]
-        #phone2 = phoneList["phone2"]
-        #phone3 = phoneList["phone3"]
-        #phone4 = phoneList["phone4"]
-        #phone5 = phoneList["phone5"]
+        print("phone list: " + phoneList)
         
         phone1 = format_phone_number(phoneList["phone1"])
         phone2 = format_phone_number(phoneList["phone2"])   
@@ -153,7 +148,7 @@ def sendSMS(deviceSerialNumber, message):
         phone4 = format_phone_number(phoneList["phone4"])  
         phone5 = format_phone_number(phoneList["phone5"])
 
-        # Twilio API credentials removed from Github for security puposes 
+        # Twilio API credentials removed for security puposes 
         account_sid = ''
         auth_token = ''
         twilio_phone_number = '+13612649833'
@@ -359,9 +354,9 @@ def deleteOlderDataEntries(dsn):
         #get first entry
         
         mostRecent = sensorData[0]["created"]
-        # print(mostRecent)
+        print(mostRecent)
         time24HrsAgo = mostRecent/1000 - (24 * 60 * 60) + (5 * 60 * 60) 
-        # print(time24HrsAgo)
+        print(time24HrsAgo)
         print(time.strftime('%m-%d-%Y %H:%M:%S', time.localtime(mostRecent/1000)))
         time24HrsAgoString = time.strftime('%m-%d-%Y %H:%M:%S', time.localtime(time24HrsAgo))
         
@@ -431,15 +426,12 @@ def indoorDelete():
 @app.route("/api/outdoorsend")
 def sendOutdoorData():
 
-    #a = request.args
-    #ID = a["ID"]
     url = "http://api.airvisual.com/v2/nearest_city?"
     payload = {}
     headers = {}
     params = {'lat': "39.7066", 'lon': "-73.5493", 'key': '302fde85-d244-455c-89cd-25a812adb4fb'}
 
     response = requests.request("GET", url, headers=headers, data=payload, params = params)
-    #response = requests.request("GET", "http://api.airvisual.com/v2/nearest_city?)
     data = json.loads(response.text)
 
     aqi = data['data']['current']['pollution']['aqius']
@@ -539,25 +531,17 @@ def pullOutdoorData():
 
     return "<div></div>"
 
-
-# ping url with all the things as query parameters
 @app.route("/api/registration", methods = ["POST", "GET"])
 def registration():
 
     a = request.args
     email = a["email"]
-    #firstname = a["firstname"]
-    #lastname = a["lastname"]
     password = a["password"]
-    #phone = a["phone"]
     username = a["username"]
 
     json_data = {
         "email" : email,
-        #"firstname" : firstname,
-        #"lastname" : lastname,
         "password" : password,
-        #"phone" : phone
         "username" : username
 
     }
@@ -579,7 +563,6 @@ def registration():
         userID = item["objectId"]
         
     return {"userID" : userID}
-    #return "<div></div>"
 
 @app.route("/api/phonelist")
 def phoneList():
