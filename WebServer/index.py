@@ -237,8 +237,9 @@ def sendEmail():
     deviceSerialNumber = 100
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
-    #server.login('myaqimail@gmail.com','Masterman!2')
-    server.login('rohanvariankaval@gmail.com','Rohan4!5006')
+
+    #login details removed for security 
+    server.login('','')
     server.sendmail('myaqimail@gmail.com',getEmail(deviceSerialNumber), 'The school indoor AQI is very high right now. Please check the myAQI app for more information')
                     
                     
