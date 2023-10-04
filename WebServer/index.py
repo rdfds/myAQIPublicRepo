@@ -44,7 +44,9 @@ def sendData():
     if not deviceInfo == None:
               try:
                 url = "http://api.airvisual.com/v2/nearest_city"
-                params = {'lat': deviceInfo[0]["latitude"], 'lon': deviceInfo[0]["longitude"], 'key': '302fde85-d244-455c-89cd-25a812adb4fb'}
+
+                #key removed for security purposes
+                params = {'lat': deviceInfo[0]["latitude"], 'lon': deviceInfo[0]["longitude"], 'key': ''}
                 s = requests.Session()
 
                 weatherData = requests.get(url, params = params).json()
